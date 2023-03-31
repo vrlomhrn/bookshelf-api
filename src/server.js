@@ -1,12 +1,13 @@
 'use strict'
+require('dotenv').config()
 
 const Hapi = require('@hapi/hapi')
 const routes = require('./routes')
 
 const init = async () => {
   const server = Hapi.server({
-    port: 9000,
-    host: 'localhost',
+    port: process.env.HOST_PORT,
+    host: process.env.HOST_NAME,
     routes: {
       cors: {
         origin: ['*']
